@@ -225,17 +225,21 @@ public class AllTasks {
     // Returns first prime number starting from the given
     // Task 9 ----------------------------------------------------------------------------------------------------------
     public static int nextPrime(int number) {
-        int i = number - 1;
 
-        outer_loop:
+        boolean flag = true;
+
         while (true) {
-            i += 1;
+            flag = true;
 
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {continue outer_loop;}
+            for (int j = 2; j < number; j++) {
+                if (number % j == 0) {
+                    flag = false;
+                    number += 1;
+                }
             }
-
-            return i;
+            if (flag) {
+                return number;
+            }
         }
     }
 
